@@ -3,12 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './services/auth.guard';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
-  {path:'',component:LoginComponent},
+  {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
-  {path:'dashboard', component:DashboardComponent},
+  {path:'dashboard', component:DashboardComponent, canActivate:[AuthGuard]},
 
 
 

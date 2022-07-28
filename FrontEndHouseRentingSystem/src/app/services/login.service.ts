@@ -1,47 +1,43 @@
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  //base url to get the token 
-  url="http://localhost:9090/api";
-  constructor(private http:HttpClient) { }
+
+  constructor(private http: HttpClient) { }
 
 
-  //calling the sever to generate the token.
-  generateToken(credentials:any)
-  {
-      return this.http.post(`${this.url}/v1/auth/login`,credentials);
+  login(data:any):Observable<any>{
+    
+    return this.http.post("http://localhost:9090/api/v1/auth/login",data);
   }
 
 
-
-  //login in the user with the token
-  loginUSer(token: string){
+  loginUserAfterToken(token:any){
     localStorage.setItem("token", token)
-    return true;
-  }
-//check if the user is logged in or not.
-  isLoggedIn(){
-      let token= localStorage.getItem("token");
-      if(token==undefined  || token=='' || token==null)
-      {
-        return false;
-      }else
-      {
-        return true;
-      }
-  }
-  //afor logout the user.
-  logout(){
-    localStorage.removeItem("token");
+    // put the role authentication here for page retrival
+    // !!!
+    // !!!
+    // !!!
+    // !!!
     return true;
   }
 
-  //for getting the token.
-  getToken(){
-    return localStorage.getItem("token")
+  UserIsLoggedIn(){
+    let token =  localStorage.getItem("token");
+    if(token==null || token=='' || token==undefined){
+      return false;
+    }else{
+      return true;
+    }
+  }
+
+  UserLoggedOut(){
+    let token = localStorage.removeItem('token');
+    location.reload()
+    return true;
   }
 }

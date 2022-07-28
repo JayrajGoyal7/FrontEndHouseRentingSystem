@@ -1,18 +1,18 @@
 <div class="login-page">
-    <div class="form">
-      <form class="login-form">
-        <input type="email" name="email" id="email" placeholder="Email"/>
-        <input type="password"name="password" id="password" placeholder="Password"/>
-        <button type="submit">login</button>
-        <p class="message">Not registered? <a routerLink="../signup">Create an account</a></p>
-      </form>
-    </div>
+  <div class="form">
+    <form class="login-form" [formGroup]="formGroup">
+      <input type="email" formControlName="username" name="username" id="username" placeholder="Email" />
+      <input type="password" formControlName="password" name="password" id="password" placeholder="Password" />
+      <button type="submit" (click)="loginProcess()">login</button>
+      <p class="message">Not registered? <a routerLink="../signup">Create an account</a></p>
+    </form>
   </div>
+</div>
 
 
-  
-  <script>
-      $('.message a').click(function(){
-   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-});
-  </script>
+
+<script>
+  $('.message a').click(function () {
+    $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+  });
+</script>
