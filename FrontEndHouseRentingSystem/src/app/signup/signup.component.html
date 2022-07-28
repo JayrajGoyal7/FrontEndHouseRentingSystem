@@ -7,11 +7,11 @@
         <button>create</button>
         <p class="message">Already registered? <a href="#">Sign In</a></p>
       </form> -->
-      <form class="login-form">
-        <input type="text" placeholder="Name"/>
-        <input type="password" placeholder="Password"/>
-        <input type="password" placeholder="Confirm Password"/>
-        <input type="email" placeholder="Email"/>
+      <form (ngSubmit)="RegisterUser()" #signUpForm="ngForm" class="login-form">
+        <input type="text" name="name" [(ngModel)]="user.name" placeholder="Name"/>
+        <!-- <input type="password" name="password"  placeholder="Password"/> -->
+        <input type="password" [(ngModel)]="user.password" name="confirmPassword"  placeholder="Password"/>
+        <input type="email" name="email" [(ngModel)]="user.email" placeholder="Email"/>
         <button type="submit">signup</button>
       </form>
     </div>
