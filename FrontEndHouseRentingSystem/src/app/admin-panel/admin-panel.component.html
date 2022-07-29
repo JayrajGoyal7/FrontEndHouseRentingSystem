@@ -1,1 +1,20 @@
-<p class="align-center">Welcome to admin panel</p>
+<p class="align-center text-center" style="font-size: larger;"><strong>Welcome ADMIN, this is the list of the users listed in our database..!</strong></p>
+<table class="table table-border">
+    <thead>
+        <tr class="thead">
+            <th>Id</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <tr *ngFor="let user of userDetails">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.role}}</td>
+        </tr>
+    </tbody>
+</table>

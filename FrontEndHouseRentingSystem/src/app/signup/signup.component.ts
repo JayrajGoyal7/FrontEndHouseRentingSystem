@@ -18,7 +18,9 @@ export class SignupComponent implements OnInit {
   
   RegisterUser(){
     this.registrationServcice.createUser(this.user).subscribe(data=>
-      {window.location.href='/'
+      { 
+        alert("SignUp successfully..! Click ok for login.")
+        window.location.href='/'
       console.log("Resposne received.")
 
     },error=>
