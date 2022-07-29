@@ -18,10 +18,10 @@ export class SignupComponent implements OnInit {
   
   RegisterUser(){
     this.registrationServcice.createUser(this.user).subscribe(data=>
+      {window.location.href='/'
+      console.log("Resposne received.")
 
-       console.log("Resposne received.")
-
-    ,error=>
+    },error=>
        console.log(this.user)
        
     );

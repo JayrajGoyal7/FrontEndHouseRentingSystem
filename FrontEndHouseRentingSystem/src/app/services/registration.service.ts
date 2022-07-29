@@ -8,9 +8,9 @@ import { User } from '../classes/user';
 })
 export class RegistrationService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  public createUser(user: User):Observable<any>{
-    return this.http.post<any>("http://localhost:9090/api/users/",user);
+  public createUser(user: User): Observable<any> {
+    return this.http.post<any>("http://localhost:9090/api/users/", user);
   }
 }
